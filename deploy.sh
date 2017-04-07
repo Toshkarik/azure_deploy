@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "hello" > /tmp/hello
+echo "server" > /tmp/hello
