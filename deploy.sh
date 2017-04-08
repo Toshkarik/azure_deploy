@@ -32,5 +32,3 @@ xmlstarlet ed -u "/appSettings/add[@key='files.docservice.url.storage']/@value" 
 xmlstarlet ed -u "/appSettings/add[@key='files.docservice.url.portal']/@value" -v $COMMUNITY_SERVER_EXT_URL > web.appsettings.config
 
 mv web.appsettings.config /var/www/onlyoffice/WebStudio/web.appsettings.config
-
-reboot && exit
