@@ -28,4 +28,4 @@ apt-get -y install onlyoffice-documentserver
 #avoid bug
 systemctl enable supervisor
 
-reboot
+reboot && exit

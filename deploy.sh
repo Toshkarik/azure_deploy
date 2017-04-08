@@ -18,7 +18,7 @@ apt-get -y dist-upgrade
 apt-get -y install onlyoffice-communityserver
 apt-get -y install xmlstarlet
 
-DOCUMENT_SERVER_INT_ADDRESS="10.0.0.11"
+DOCUMENT_SERVER_INT_ADDRESS="10.1.0.11"
 DOCUMENT_SERVER_API_EXT_URL="http://$2/web-apps/apps/api/documents/api.js"
 DOCUMENT_SERVER_CONVERT_SERVICE_INT_URL="http://${DOCUMENT_SERVER_INT_ADDRESS}/ConvertService.ashx"
 DOCUMENT_SERVER_FILE_UPLOADER_INT_URL="http://${DOCUMENT_SERVER_INT_ADDRESS}/FileUploader.ashx"
@@ -33,4 +33,4 @@ xmlstarlet ed -u "/appSettings/add[@key='files.docservice.url.portal']/@value" -
 
 mv web.appsettings.config /var/www/onlyoffice/WebStudio/web.appsettings.config
 
-reboot
+reboot && exit
