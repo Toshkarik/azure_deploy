@@ -29,6 +29,8 @@ xmlstarlet ed -u "/appSettings/add[@key='files.docservice.url.api']/@value" -v $
 xmlstarlet ed -u "/appSettings/add[@key='files.docservice.url.command']/@value" -v $DOCUMENT_SERVER_COMMAND_SERVICE_INT_URL | \
 xmlstarlet ed -u "/appSettings/add[@key='files.docservice.url.converter']/@value" -v $DOCUMENT_SERVER_CONVERT_SERVICE_INT_URL | \
 xmlstarlet ed -u "/appSettings/add[@key='files.docservice.url.storage']/@value" -v $DOCUMENT_SERVER_FILE_UPLOADER_INT_URL | \
-xmlstarlet ed -u "/appSettings/add[@key='files.docservice.url.portal']/@value" -v $COMMUNITY_SERVER_EXT_URL > /var/www/onlyoffice/WebStudio/web.appsettings.config
+xmlstarlet ed -u "/appSettings/add[@key='files.docservice.url.portal']/@value" -v $COMMUNITY_SERVER_EXT_URL > web.appsettings.config
+
+mv web.appsettings.config /var/www/onlyoffice/WebStudio/web.appsettings.config
 
 reboot
