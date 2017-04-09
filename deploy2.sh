@@ -25,5 +25,5 @@ apt-get -y install redis-server
 apt-get -y install rabbitmq-server
 apt-get -y install onlyoffice-documentserver
 
-#avoid bug
+#avoid ubuntu bug #1594740
 systemctl enable supervisor
