@@ -2,22 +2,6 @@
 
 export DEBIAN_FRONTEND=noninteractive
 
-echo "deb http://download.mono-project.com/repo/debian wheezy main" >> /etc/apt/sources.list
-echo "deb http://download.onlyoffice.com/repo/debian squeeze main" >> /etc/apt/sources.list
-
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-
-echo "mysql-server mysql-server/root_password password onlyoffice" | debconf-set-selections
-echo "mysql-server mysql-server/root_password_again password onlyoffice" | debconf-set-selections
-echo "onlyoffice-communityserver onlyoffice/db-pwd password onlyoffice" | debconf-set-selections
-
-apt-get update
-apt-get -y upgrade
-apt-get -y dist-upgrade
-apt-get -y install onlyoffice-communityserver
-apt-get -y install xmlstarlet
-
 SERVER_EXT_ADDRESS="$1"
 DOCUMENT_SERVER_EXT_ADDRESS="$2"
 DOCUMENT_SERVER_INT_ADDRESS="$3"
@@ -36,3 +20,6 @@ xmlstarlet ed -u "/appSettings/add[@key='files.docservice.url.portal']/@value" -
 
 mv web.appsettings.config /var/www/onlyoffice/WebStudio/web.appsettings.config
 cp /var/www/onlyoffice/WebStudio/web.appsettings.config /var/www/onlyoffice/WebStudio2/web.appsettings.config
+
+systemctl restart monoserve
+systemctl restart monoserve2
