@@ -13,8 +13,8 @@ echo "mysql-server mysql-server/root_password_again password onlyoffice" | debco
 echo "onlyoffice-communityserver onlyoffice/db-pwd password onlyoffice" | debconf-set-selections
 
 apt-get update
-apt-get -y upgrade
-apt-get -y dist-upgrade
+#apt-get -y upgrade
+#apt-get -y dist-upgrade
 apt-get -y install onlyoffice-communityserver
 apt-get -y install xmlstarlet
 
@@ -36,3 +36,6 @@ xmlstarlet ed -u "/appSettings/add[@key='files.docservice.url.portal']/@value" -
 
 mv web.appsettings.config /var/www/onlyoffice/WebStudio/web.appsettings.config
 cp /var/www/onlyoffice/WebStudio/web.appsettings.config /var/www/onlyoffice/WebStudio2/web.appsettings.config
+
+systemctl restart monoserve
+systemctl restart monoserve2
